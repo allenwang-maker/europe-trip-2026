@@ -195,6 +195,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
     <button class="day-btn" data-target="day7">D7 陶尔米纳</button>
     <button class="day-btn" data-target="day8">D8 出发</button>
     <button class="day-btn" data-target="info">实用信息</button>
+    <button class="day-btn" data-target="phrases">常用语</button>
   </div>
 </nav>
 
@@ -1151,6 +1152,80 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
     <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg/1280px-Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg" alt="Cannoli" loading="lazy"><div class="gi-label">Cannoli · 西西里</div></div>
   </div>
 
+</section>
+
+<!-- =================== TRAVEL PHRASES =================== -->
+<section class="day-section" id="phrases">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>PHRASES</div>
+    <h2 class="day-title">旅行常用语速查</h2>
+    <div class="day-meta"><span>发音标注基于英文近似音，不完美但能被听懂</span></div>
+  </div>
+
+  <style>
+    .phrase-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+    .phrase-table th{text-align:left;padding:10px 12px;background:var(--accent-light);color:var(--accent-dark);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;border-radius:var(--radius-sm) var(--radius-sm) 0 0}
+    .phrase-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+    .phrase-table tr:hover{background:var(--accent-light)}
+    .phrase-zh{font-weight:600;color:var(--text);min-width:80px}
+    .phrase-foreign{color:var(--accent-dark);font-weight:600}
+    .phrase-pron{color:var(--text-s);font-style:italic;font-size:12px}
+    .lang-flag{font-size:16px;margin-right:4px}
+  </style>
+
+  <div class="collapsible-header open" onclick="toggleCollapse(this)">
+    <h3><span class="lang-flag">🇪🇸</span> 旅游西班牙语（巴塞罗那）</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body open">
+    <table class="phrase-table">
+      <tr><th>场景</th><th>中文</th><th>西班牙语</th><th>近似发音</th></tr>
+      <tr><td rowspan="3">基础</td><td class="phrase-zh">你好</td><td class="phrase-foreign">Hola</td><td class="phrase-pron">OH-lah</td></tr>
+      <tr><td class="phrase-zh">谢谢</td><td class="phrase-foreign">Gracias</td><td class="phrase-pron">GRAH-thee-ahs</td></tr>
+      <tr><td class="phrase-zh">请 / 不客气</td><td class="phrase-foreign">Por favor / De nada</td><td class="phrase-pron">por fah-VOR / deh NAH-dah</td></tr>
+      <tr><td rowspan="3">餐厅</td><td class="phrase-zh">菜单，请</td><td class="phrase-foreign">La carta, por favor</td><td class="phrase-pron">lah KAR-tah por fah-VOR</td></tr>
+      <tr><td class="phrase-zh">买单</td><td class="phrase-foreign">La cuenta, por favor</td><td class="phrase-pron">lah KWEN-tah por fah-VOR</td></tr>
+      <tr><td class="phrase-zh">来一份这个</td><td class="phrase-foreign">Uno de esto</td><td class="phrase-pron">OO-noh deh EH-stoh（指着菜单说）</td></tr>
+      <tr><td rowspan="3">点餐</td><td class="phrase-zh">两杯啤酒</td><td class="phrase-foreign">Dos cervezas</td><td class="phrase-pron">dohs thehr-VEH-thahs</td></tr>
+      <tr><td class="phrase-zh">一杯红酒/白酒</td><td class="phrase-foreign">Un vino tinto / blanco</td><td class="phrase-pron">oon VEE-noh TEEN-toh / BLAHN-koh</td></tr>
+      <tr><td class="phrase-zh">非常好吃！</td><td class="phrase-foreign">¡Muy bueno!</td><td class="phrase-pron">MOO-ee BWEH-noh</td></tr>
+      <tr><td rowspan="3">出行</td><td class="phrase-zh">这个多少钱？</td><td class="phrase-foreign">¿Cuánto cuesta?</td><td class="phrase-pron">KWAHN-toh KWEH-stah</td></tr>
+      <tr><td class="phrase-zh">洗手间在哪？</td><td class="phrase-foreign">¿Dónde está el baño?</td><td class="phrase-pron">DOHN-deh eh-STAH el BAH-nyoh</td></tr>
+      <tr><td class="phrase-zh">可以拍照吗？</td><td class="phrase-foreign">¿Puedo hacer una foto?</td><td class="phrase-pron">PWEH-doh ah-THEHR OO-nah FOH-toh</td></tr>
+      <tr><td rowspan="2">交通</td><td class="phrase-zh">去...怎么走？</td><td class="phrase-foreign">¿Cómo llego a...?</td><td class="phrase-pron">KOH-moh YEH-goh ah...</td></tr>
+      <tr><td class="phrase-zh">一张票到...</td><td class="phrase-foreign">Un billete a...</td><td class="phrase-pron">oon bee-YEH-teh ah...</td></tr>
+      <tr><td rowspan="2">应急</td><td class="phrase-zh">对不起/借过</td><td class="phrase-foreign">Perdón / Disculpe</td><td class="phrase-pron">pehr-DOHN / dees-KOOL-peh</td></tr>
+      <tr><td class="phrase-zh">我不会说西班牙语</td><td class="phrase-foreign">No hablo español</td><td class="phrase-pron">noh AH-bloh eh-spah-NYOL</td></tr>
+    </table>
+    <div class="insider"><strong>加泰罗尼亚语小知识：</strong>巴塞罗那很多人说<strong>加泰罗尼亚语</strong>而非西班牙语。"谢谢"是 <em>Mercès</em> (mehr-SEHS)，"你好"是 <em>Hola</em> (一样)。但说西班牙语完全没问题，大家都听得懂</div>
+  </div>
+
+  <div class="collapsible-header open" onclick="toggleCollapse(this)" style="margin-top:24px">
+    <h3><span class="lang-flag">🇮🇹</span> 旅游意大利语（西西里）</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body open">
+    <table class="phrase-table">
+      <tr><th>场景</th><th>中文</th><th>意大利语</th><th>近似发音</th></tr>
+      <tr><td rowspan="4">基础</td><td class="phrase-zh">你好（白天）</td><td class="phrase-foreign">Buongiorno</td><td class="phrase-pron">bwon-JOR-noh</td></tr>
+      <tr><td class="phrase-zh">你好（晚上）</td><td class="phrase-foreign">Buonasera</td><td class="phrase-pron">bwoh-nah-SEH-rah</td></tr>
+      <tr><td class="phrase-zh">谢谢</td><td class="phrase-foreign">Grazie</td><td class="phrase-pron">GRAH-tsee-eh</td></tr>
+      <tr><td class="phrase-zh">请 / 不客气</td><td class="phrase-foreign">Per favore / Prego</td><td class="phrase-pron">pehr fah-VOH-reh / PREH-goh</td></tr>
+      <tr><td rowspan="4">餐厅</td><td class="phrase-zh">菜单，请</td><td class="phrase-foreign">Il menù, per favore</td><td class="phrase-pron">eel meh-NOO pehr fah-VOH-reh</td></tr>
+      <tr><td class="phrase-zh">买单</td><td class="phrase-foreign">Il conto, per favore</td><td class="phrase-pron">eel KOHN-toh pehr fah-VOH-reh</td></tr>
+      <tr><td class="phrase-zh">我想要...</td><td class="phrase-foreign">Vorrei...</td><td class="phrase-pron">vor-RAY...</td></tr>
+      <tr><td class="phrase-zh">非常好吃！</td><td class="phrase-foreign">Buonissimo!</td><td class="phrase-pron">bwoh-NEE-see-moh（竖起大拇指说效果翻倍）</td></tr>
+      <tr><td rowspan="4">点餐</td><td class="phrase-zh">一杯浓缩咖啡</td><td class="phrase-foreign">Un caffè</td><td class="phrase-pron">oon kah-FEH（意大利的"咖啡"就是 espresso）</td></tr>
+      <tr><td class="phrase-zh">两杯啤酒</td><td class="phrase-foreign">Due birre</td><td class="phrase-pron">DOO-eh BEER-reh</td></tr>
+      <tr><td class="phrase-zh">一杯红酒/白酒</td><td class="phrase-foreign">Un vino rosso / bianco</td><td class="phrase-pron">oon VEE-noh ROH-soh / bee-AHN-koh</td></tr>
+      <tr><td class="phrase-zh">一份 Granita</td><td class="phrase-foreign">Una granita al pistacchio</td><td class="phrase-pron">OO-nah grah-NEE-tah ahl pee-STAH-kee-oh</td></tr>
+      <tr><td rowspan="3">出行</td><td class="phrase-zh">这个多少钱？</td><td class="phrase-foreign">Quanto costa?</td><td class="phrase-pron">KWAHN-toh KOH-stah</td></tr>
+      <tr><td class="phrase-zh">洗手间在哪？</td><td class="phrase-foreign">Dov'è il bagno?</td><td class="phrase-pron">doh-VEH eel BAH-nyoh</td></tr>
+      <tr><td class="phrase-zh">可以拍照吗？</td><td class="phrase-foreign">Posso fare una foto?</td><td class="phrase-pron">POH-soh FAH-reh OO-nah FOH-toh</td></tr>
+      <tr><td rowspan="3">应急</td><td class="phrase-zh">对不起/借过</td><td class="phrase-foreign">Scusi / Permesso</td><td class="phrase-pron">SKOO-zee / pehr-MEH-soh（挤过人群说 Permesso）</td></tr>
+      <tr><td class="phrase-zh">我不会说意大利语</td><td class="phrase-foreign">Non parlo italiano</td><td class="phrase-pron">nohn PAR-loh ee-tah-lee-AH-noh</td></tr>
+      <tr><td class="phrase-zh">太美了！</td><td class="phrase-foreign">Che bello!</td><td class="phrase-pron">keh BEH-loh（看到美景脱口而出）</td></tr>
+    </table>
+    <div class="insider"><strong>西西里方言加分项：</strong>当地人说 <em>Mizzica!</em> (MEETS-ee-kah) 表示"哇！"/"天哪！" — 学会这个词，西西里人会觉得你很亲切。在酒吧碰杯时说 <em>Salute!</em> (sah-LOO-teh)，意思是"干杯/健康"</div>
+  </div>
 </section>
 
 </main>
