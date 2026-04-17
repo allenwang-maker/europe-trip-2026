@@ -9,7 +9,7 @@
 <style>
 :root{--bg:#FAFAF8;--surface:#fff;--accent:#D97706;--accent-light:#FEF3C7;--accent-dark:#92400E;--text:#1C1917;--text-s:#57534E;--text-t:#A8A29E;--border:#E8E5E0;--green:#059669;--blue:#2563EB;--red:#DC2626;--radius:14px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 30px rgba(0,0,0,.12);--font:'Inter',system-ui,-apple-system,sans-serif;--serif:'Playfair Display',Georgia,serif}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:50px}
+html{scroll-padding-top:50px}
 body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
 .container{max-width:900px;margin:0 auto;padding:0 24px}
 /* HERO */
@@ -1351,7 +1351,11 @@ function updateActiveNav() {
     if (isActive && !b.classList.contains('active')) {
       dayBtns.forEach(x => x.classList.remove('active'));
       b.classList.add('active');
-      b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      // Scroll nav bar horizontally without triggering page scroll
+      const nav = document.querySelector('.day-nav-inner');
+      const btnLeft = b.offsetLeft - nav.offsetLeft;
+      const center = btnLeft - nav.clientWidth / 2 + b.clientWidth / 2;
+      nav.scrollTo({ left: center, behavior: 'smooth' });
     }
   });
   ticking = false;
