@@ -259,6 +259,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
   <div class="weather-bar">
     <div class="weather-item"><span>☀️</span>晴 16-22°C</div>
+    <div class="weather-item"><span>🌅</span>日出 06:55 · 日落 20:45</div>
     <div class="weather-item"><span>🌊</span>海水约17°C（踩水可以，游泳稍凉）</div>
     <div class="weather-item"><span>👕</span>短袖+薄外套</div>
   </div>
@@ -467,6 +468,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
     <div class="day-meta">
       <span>5月3日 周六</span>
       <span class="tag">🌡️ 16-22°C</span>
+      <span class="tag">🌅 日出 06:55 · 日落 20:45</span>
       <span class="tag">🚶 全天步行+地铁</span>
       <span class="tag">📏 ~14.7km 步行量</span>
     </div>
@@ -779,6 +781,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
   <div class="weather-bar">
     <div class="weather-item"><span>☀️</span>晴 15-24°C（比巴塞罗那热）</div>
+    <div class="weather-item"><span>🌅</span>日出 06:05 · 日落 19:50</div>
     <div class="weather-item"><span>🌋</span>天气好时从街上可以看到埃特纳雪顶</div>
     <div class="weather-item"><span>👕</span>短袖+防晒</div>
   </div>
@@ -956,8 +959,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
   <div class="weather-bar">
     <div class="weather-item"><span>☀️</span>晴 15-23°C</div>
+    <div class="weather-item"><span>🌅</span>日出 06:05 · 日落 19:50</div>
     <div class="weather-item"><span>🌊</span>海水约18-19°C</div>
-    <div class="weather-item"><span>🌅</span>日落 19:50</div>
     <div class="weather-item"><span>👕</span>短袖+薄外套（山上风大）</div>
   </div>
 
@@ -1325,21 +1328,39 @@ dayBtns.forEach(btn => {
   });
 });
 
-// Active state on scroll
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      dayBtns.forEach(b => b.classList.remove('active'));
-      const activeBtn = document.querySelector(`[data-target="${entry.target.id}"]`);
-      if (activeBtn) {
-        activeBtn.classList.add('active');
-        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
+// Active state on scroll — use scroll position (more reliable than IO)
+let ticking = false;
+function updateActiveNav() {
+  const scrollY = window.scrollY + 120; // offset for sticky nav
+  let currentId = '';
+  daySections.forEach(section => {
+    const top = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    if (scrollY >= top && scrollY < bottom) {
+      currentId = section.id;
     }
   });
-}, { threshold: 0.15, rootMargin: '-80px 0px -50% 0px' });
+  // If scrolled past last section, highlight last
+  if (!currentId && daySections.length) {
+    const last = daySections[daySections.length - 1];
+    if (scrollY >= last.offsetTop) currentId = last.id;
+  }
+  dayBtns.forEach(b => {
+    const isActive = b.dataset.target === currentId;
+    if (isActive && !b.classList.contains('active')) {
+      dayBtns.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  });
+  ticking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!ticking) { requestAnimationFrame(updateActiveNav); ticking = true; }
+}, { passive: true });
 
-daySections.forEach(s => navObserver.observe(s));
+// Initial highlight
+updateActiveNav();
 
 // === COLLAPSIBLE SECTIONS ===
 function toggleCollapse(header) {
