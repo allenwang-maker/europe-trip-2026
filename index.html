@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五一欧洲之旅 2026 | Barcelona · Catania · Taormina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAFAF8;--surface:#fff;--accent:#D97706;--accent-light:#FEF3C7;--accent-dark:#92400E;--text:#1C1917;--text-s:#57534E;--text-t:#A8A29E;--border:#E8E5E0;--green:#059669;--blue:#2563EB;--red:#DC2626;--radius:14px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 30px rgba(0,0,0,.12);--font:'Inter',system-ui,-apple-system,sans-serif;--serif:'Playfair Display',Georgia,serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 70%,#533483 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Aerial_image_of_the_coast_of_Taormina_%28view_from_the_southeast%29.jpg/1280px-Aerial_image_of_the_coast_of_Taormina_%28view_from_the_southeast%29.jpg') center/cover;opacity:.25;filter:saturate(1.2)}
+.hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:40px 24px}
+.hero-tag{display:inline-block;padding:6px 18px;border:1px solid rgba(255,255,255,.3);border-radius:100px;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;backdrop-filter:blur(4px);background:rgba(255,255,255,.08)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;line-height:1.2;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:#FCD34D}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);opacity:.85;font-weight:300;margin-bottom:40px;letter-spacing:.5px}
+.hero-cities{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:48px}
+.hero-city{text-align:center}
+.hero-city span{display:block;font-size:28px;margin-bottom:4px}
+.hero-city small{font-size:13px;opacity:.7;letter-spacing:1px}
+/* COUNTDOWN */
+.countdown-wrap{background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:24px 32px;display:inline-flex;flex-direction:column;align-items:center;gap:12px}
+.countdown-wrap.hidden{display:none}
+.countdown-label{font-size:14px;opacity:.8;letter-spacing:1px}
+.countdown{display:flex;gap:16px}
+.cd-unit{text-align:center}
+.cd-num{font-size:clamp(2rem,5vw,3rem);font-weight:800;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,#FCD34D,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
+.cd-txt{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;opacity:.6}
+/* SCROLL CUE */
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
+.scroll-cue svg{width:28px;height:28px;stroke:#fff;opacity:.5}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+/* NAV */
+.day-nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 0;transition:box-shadow .3s}
+.day-nav.scrolled{box-shadow:var(--shadow-md)}
+.day-nav-inner{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 24px;max-width:960px;margin:0 auto}
+.day-nav-inner::-webkit-scrollbar{display:none}
+.day-btn{flex-shrink:0;padding:8px 16px;border-radius:100px;border:1px solid var(--border);background:var(--surface);font-size:13px;font-weight:500;cursor:pointer;transition:all .25s;white-space:nowrap;font-family:var(--font);color:var(--text-s)}
+.day-btn:hover{border-color:var(--accent);color:var(--accent)}
+.day-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 2px 8px rgba(217,119,6,.3)}
+/* SECTION */
+.day-section{padding:80px 0 40px;opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.day-section.visible{opacity:1;transform:translateY(0)}
+/* DAY HEADER */
+.day-header{margin-bottom:40px}
+.day-num{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.day-num .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.day-title{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.25;margin-bottom:8px}
+.day-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--text-s)}
+.day-meta .tag{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;background:var(--accent-light);color:var(--accent-dark);border-radius:100px;font-size:12px;font-weight:600}
+/* HERO IMAGE CARD */
+.hero-img{width:100%;border-radius:var(--radius);overflow:hidden;margin-bottom:32px;position:relative;aspect-ratio:21/9}
+.hero-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.hero-img:hover img{transform:scale(1.03)}
+.hero-img .overlay{position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff}
+.hero-img .overlay h3{font-family:var(--serif);font-size:1.3rem}
+.hero-img .overlay p{font-size:13px;opacity:.85}
+/* TIMELINE */
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--accent-light),var(--accent),var(--accent-light))}
+.tl-item{position:relative;margin-bottom:28px;opacity:0;transform:translateX(-10px);transition:all .5s cubic-bezier(.22,1,.36,1)}
+.tl-item.visible{opacity:1;transform:translateX(0)}
+.tl-dot{position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2.5px solid var(--accent);z-index:1;transition:all .3s}
+.tl-item:hover .tl-dot{background:var(--accent);box-shadow:0 0 0 4px var(--accent-light)}
+.tl-time{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:2px}
+.tl-title{font-size:16px;font-weight:600;margin-bottom:4px}
+.tl-desc{font-size:14px;color:var(--text-s);line-height:1.65}
+.tl-badges{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.tl-badge{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600}
+.tl-badge.walk{background:#ECFDF5;color:#065F46}
+.tl-badge.metro{background:#EFF6FF;color:#1E40AF}
+.tl-badge.drive{background:#FEF3C7;color:#92400E}
+.tl-badge.ticket{background:#FEE2E2;color:#991B1B}
+.tl-badge.free{background:#F0FDF4;color:#166534}
+.tl-badge.tip{background:#F5F3FF;color:#5B21B6}
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s cubic-bezier(.22,1,.36,1)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.card-img{height:160px;overflow:hidden;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-body{padding:16px}
+.card-body h4{font-size:15px;font-weight:600;margin-bottom:4px}
+.card-body p{font-size:13px;color:var(--text-s);line-height:1.55}
+.card-body .card-tag{font-size:11px;display:inline-block;padding:2px 8px;border-radius:4px;background:var(--accent-light);color:var(--accent-dark);margin-top:8px;font-weight:600}
+/* RESTAURANT */
+.resto-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;gap:14px;transition:all .3s;cursor:default}
+.resto-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.resto-icon{width:44px;height:44px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.resto-info h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.resto-info p{font-size:12px;color:var(--text-s);line-height:1.5}
+.resto-info .dist{font-size:11px;color:var(--green);font-weight:600;margin-top:4px}
+/* TIPS BOX */
+.tip-box{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1px solid #FDE68A;border-radius:var(--radius);padding:20px 24px;margin:24px 0}
+.tip-box h4{font-size:14px;font-weight:700;color:var(--accent-dark);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.tip-box ul{list-style:none;padding:0}
+.tip-box li{font-size:13px;color:#78350F;padding:4px 0;padding-left:18px;position:relative;line-height:1.6}
+.tip-box li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+/* INSIDER TIP */
+.insider{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1px solid #DDD6FE;border-radius:var(--radius);padding:16px 20px;margin:16px 0;font-size:13px;color:#4C1D95;line-height:1.65}
+.insider strong{color:#6D28D9;font-weight:700}
+.insider::before{content:'💡 ';font-size:14px}
+/* BOOKING ALERT */
+.booking-alert{display:inline-flex;align-items:center;gap:6px;background:#FEE2E2;color:#991B1B;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;margin:4px 0}
+.booking-alert::before{content:'🎫'}
+.booking-ok{background:#D1FAE5;color:#065F46}
+.booking-ok::before{content:'✅'}
+/* WEATHER */
+.weather-bar{display:flex;gap:16px;flex-wrap:wrap;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px}
+.weather-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-s)}
+.weather-item span{font-size:18px}
+/* DIVIDER */
+.section-divider{text-align:center;margin:60px 0;color:var(--text-t);font-size:24px;letter-spacing:12px}
+/* COLLAPSIBLE */
+.collapsible-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:12px 0;border-bottom:1px solid var(--border);margin-bottom:12px}
+.collapsible-header h3{font-size:16px;font-weight:600}
+.collapsible-header .arrow{transition:transform .3s;font-size:14px;color:var(--text-t)}
+.collapsible-header.open .arrow{transform:rotate(180deg)}
+.collapsible-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
+.collapsible-body.open{max-height:2000px}
+/* PRACTICAL INFO */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0}
+.info-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px}
+.info-item h4{font-size:13px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.info-item p{font-size:12px;color:var(--text-s);line-height:1.5}
+/* IMAGE GRID */
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.img-grid.three{grid-template-columns:1fr 1fr 1fr}
+.img-grid .gi{border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:4/3;position:relative}
+.img-grid .gi img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.img-grid .gi:hover img{transform:scale(1.05)}
+.img-grid .gi .gi-label{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font-size:12px;font-weight:500}
+/* PROGRESS BAR */
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),#F59E0B);z-index:200;transition:width .1s;width:0}
+/* FOOTER */
+.footer{text-align:center;padding:48px 24px;color:var(--text-t);font-size:13px;border-top:1px solid var(--border)}
+.footer a{color:var(--accent);text-decoration:none}
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hero-cities{gap:20px}
+  .countdown{gap:10px}
+  .cd-num{font-size:2rem}
+  .timeline{padding-left:32px}
+  .img-grid{grid-template-columns:1fr}
+  .img-grid.three{grid-template-columns:1fr 1fr}
+  .card-grid{grid-template-columns:1fr}
+  .hero-img{aspect-ratio:16/9}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- =================== HERO =================== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">May 2026 · 8 Days</div>
+    <h1>五一欧洲之旅<br><em>Barcelona · Sicily</em></h1>
+    <p class="hero-sub">巴塞罗那的高迪曲线 → 西西里的火山与海岸</p>
+    <div class="hero-cities">
+      <div class="hero-city"><span>🇪🇸</span><small>Sitges · Barcelona</small></div>
+      <div class="hero-city"><span>✈️</span><small>May 4 Flight</small></div>
+      <div class="hero-city"><span>🇮🇹</span><small>Catania · Taormina</small></div>
+    </div>
+    <div class="countdown-wrap" id="countdownWrap">
+      <div class="countdown-label">距离出发还有</div>
+      <div class="countdown" id="countdown">
+        <div class="cd-unit"><div class="cd-num" id="cdDays">--</div><div class="cd-txt">天</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdHours">--</div><div class="cd-txt">时</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdMins">--</div><div class="cd-txt">分</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdSecs">--</div><div class="cd-txt">秒</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:72px;right:32px;font-size:13px;opacity:.45;color:#fff;letter-spacing:1px;font-weight:300">by Allen</div>
+  <div class="scroll-cue"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+</section>
+
+<!-- =================== DAY NAV =================== -->
+<nav class="day-nav" id="dayNav">
+  <div class="day-nav-inner">
+    <button class="day-btn" data-target="day1">D1 锡切斯</button>
+    <button class="day-btn" data-target="day2">D2 会合巴塞</button>
+    <button class="day-btn" data-target="day3">D3 巴塞全天</button>
+    <button class="day-btn" data-target="day4">D4 巴塞→卡塔尼亚</button>
+    <button class="day-btn" data-target="day5">D5 卡塔尼亚</button>
+    <button class="day-btn" data-target="day6">D6 婚礼</button>
+    <button class="day-btn" data-target="day7">D7 陶尔米纳</button>
+    <button class="day-btn" data-target="day8">D8 出发</button>
+    <button class="day-btn" data-target="info">实用信息</button>
+  </div>
+</nav>
+
+<main class="container">
+
+<!-- =================== DAY 1 =================== -->
+<section class="day-section" id="day1">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 1</div>
+    <h2 class="day-title">锡切斯 · 地中海的慵懒</h2>
+    <div class="day-meta">
+      <span>5月1日 周四</span>
+      <span class="tag">🌡️ 16-22°C</span>
+      <span class="tag">🌅 日落 20:45</span>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Sitges_-_Ansicht_4.jpg/1280px-Sitges_-_Ansicht_4.jpg" alt="Sitges" loading="lazy">
+    <div class="overlay">
+      <h3>Sitges 锡切斯</h3>
+      <p>巴塞罗那西南35公里的"加泰罗尼亚圣特罗佩" — 白色房屋、17片沙滩、Modernista艺术</p>
+    </div>
+  </div>
+
+  <div class="weather-bar">
+    <div class="weather-item"><span>☀️</span>晴 16-22°C</div>
+    <div class="weather-item"><span>🌊</span>海水约17°C（踩水可以，游泳稍凉）</div>
+    <div class="weather-item"><span>👕</span>短袖+薄外套</div>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-s);margin-bottom:6px;font-weight:600">Allen一行人：巴塞罗那 → Sitges ｜ 高老师一行人：马德里自由行</p>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">上午</div>
+      <div class="tl-title">落地巴塞罗那 El Prat 机场</div>
+      <div class="tl-desc">前往 Sitges：打车/Uber 约30分钟（€40-50）。公共交通：机场大巴到 Passeig de Gràcia → 转 R2 Sud 近郊火车（全程约1.5h，€5）</div>
+      <div class="tl-badges"><span class="tl-badge drive">🚕 打车 30min €40-50</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:00</div>
+      <div class="tl-title">入住 Sabàtic Hotel (Autograph Collection)</div>
+      <div class="tl-desc">万豪旗下精品酒店，放下行李换轻便衣服</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:30 - 16:15</div>
+      <div class="tl-title">Passeig Marítim 海滨长廊</div>
+      <div class="tl-desc">沿海边漫步，左边地中海，右边白色建筑。5月阳光很好，适合散步和拍照</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 步行沿海</span><span class="tl-badge free">免费</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">16:15 - 17:00</div>
+      <div class="tl-title">圣巴尔托洛梅教堂 Iglesia de Sant Bartomeu</div>
+      <div class="tl-desc">锡切斯的标志建筑，矗立在海边岩石台地上。白墙蓝天碧海——整个加泰罗尼亚海岸最经典的剪影。教堂前的小广场是看日落的绝佳位置</div>
+      <div class="tl-badges"><span class="tl-badge free">免费</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">17:00 - 17:30</div>
+      <div class="tl-title">Museu Cau Ferrat</div>
+      <div class="tl-desc">画家 Santiago Rusiñol 的故居博物馆，收藏 El Greco 画作和铁艺。建筑紧贴海岸悬崖</div>
+      <div class="tl-badges"><span class="tl-badge ticket">门票 €10</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">17:30 - 18:30</div>
+      <div class="tl-title">老城小巷 Casco Antiguo</div>
+      <div class="tl-desc">穿梭在 Carrer Major 和 Carrer de Parellades 窄巷中。白墙、三角梅、彩色门窗、独立艺廊</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">18:30 - 20:45</div>
+      <div class="tl-title">Platja de Sant Sebastià 海滩 + 日落</div>
+      <div class="tl-desc">镇中心最大的沙滩，找个好位置等日落（约20:45）</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">20:30 - 21:30</div>
+      <div class="tl-title">晚餐</div>
+      <div class="tl-desc">见下方推荐</div>
+    </div>
+  </div>
+
+  <div class="collapsible-header" onclick="toggleCollapse(this)">
+    <h3>🍽️ 锡切斯晚餐推荐</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body">
+    <div class="card-grid">
+      <div class="resto-card"><div class="resto-icon">🦐</div><div class="resto-info"><h4>El Cable</h4><p>海鲜为主，terraza 直面大海。Paella 和 grilled seafood 口碑好</p><p class="dist">📍 海滨长廊上</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🍷</div><div class="resto-info"><h4>Pic Nic</h4><p>地中海创意菜，小份 Tasting menu，当地人和游客都爱</p><p class="dist">📍 Carrer Major（老城主街）</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🍝</div><div class="resto-info"><h4>La Sosta</h4><p>意大利-加泰融合菜，手工 pasta 出色，价格合理</p><p class="dist">📍 老城内</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🥘</div><div class="resto-info"><h4>Vivero</h4><p>面朝海滩的海鲜餐厅。传统 fideuà、paella，适合两人浪漫晚餐</p><p class="dist">📍 海边</p></div></div>
+    </div>
+  </div>
+
+  <div class="insider"><strong>小众玩法：</strong>锡切斯是 Penedès 葡萄酒产区的门户。有时间可以去 Freixenet 或 Codorníu 酒庄参观 Cava 气泡酒（车程20min）。但今天下午才到，建议下次再来</div>
+
+  <div class="tip-box">
+    <h4>💡 Insider Tips</h4>
+    <ul>
+      <li><strong>不一定要进 Cau Ferrat 博物馆</strong>，但从博物馆外面的平台看海景一样值回票价 — 免费</li>
+      <li>教堂前小广场是全镇最佳日落点，提前15分钟占位</li>
+      <li>Sitges 是西班牙最知名的 LGBTQ+ 友好小镇，氛围非常开放包容</li>
+      <li>5月海水约17°C，踩水OK但正经游泳还是凉了点</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================== DAY 2 =================== -->
+<section class="day-section" id="day2">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 2</div>
+    <h2 class="day-title">锡切斯 → 巴塞罗那会合</h2>
+    <div class="day-meta">
+      <span>5月2日 周五</span>
+      <span class="tag">🌡️ 16-22°C</span>
+      <span class="tag">🚂 Sitges → BCN 40min</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">9:00 - 10:00</div>
+      <div class="tl-title">酒店早餐</div>
+      <div class="tl-desc">Autograph Collection 的早餐应该不错，慢慢享受</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">10:00 - 11:30</div>
+      <div class="tl-title">Passeig Marítim 海滨继续探索</div>
+      <div class="tl-desc">往南走探索 Platja de la Fragata → Platja de la Bassa Rodona（彩虹旗标志性海滩）。沿途拍照、踩沙、喝杯咖啡</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">11:30 - 12:00</div>
+      <div class="tl-title">回酒店退房</div>
+      <div class="tl-desc">12:00前退房</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:15</div>
+      <div class="tl-title">🚂 Sitges 火车站 → Barcelona Passeig de Gràcia</div>
+      <div class="tl-desc">搭 R2 Sud 近郊火车，约35-40分钟，每30分钟一班，€4.6</div>
+      <div class="tl-badges"><span class="tl-badge metro">🚂 R2 Sud 40min €4.6</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">13:00</div>
+      <div class="tl-title">抵达 Passeig de Gràcia 站</div>
+      <div class="tl-desc">Airbnb 在 Carrer del Consell de Cent 440 — 从火车站出来<strong>步行仅3-5分钟</strong>！位置绝了。15:00才能 check-in，先去吃午餐。行李联系房东 Ola 看能否提前放，或用 Stasher/Bounce 寄存（€5-6/件）</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 步行 5min 到住处</span></div>
+    </div>
+  </div>
+
+  <div class="collapsible-header" onclick="toggleCollapse(this)">
+    <h3>🍽️ 午餐推荐（Airbnb步行5min内）</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body">
+    <div class="card-grid">
+      <div class="resto-card"><div class="resto-icon">🍤</div><div class="resto-info"><h4>Cervecería Catalana</h4><p>巴塞罗那最受欢迎的 tapas bar。Patatas bravas、Jamón ibérico、各种 croquetas。<strong>不接受预约，排队是常态但翻台快</strong></p><p class="dist">📍 Carrer de Mallorca 236 · 步行4min</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🦀</div><div class="resto-info"><h4>Ciudad Condal</h4><p>海鲜 tapas 尤其好，风格类似 Cervecería Catalana</p><p class="dist">📍 Rambla de Catalunya 18 · 步行5min</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🍔</div><div class="resto-info"><h4>Tapas 24</h4><p>名厨 Carles Abellan 开的。招牌 "McFoie Burger"（鹅肝汉堡）必点</p><p class="dist">📍 Carrer de la Diputació 269 · 步行5min</p></div></div>
+    </div>
+  </div>
+
+  <div class="timeline" style="margin-top:24px">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:00</div>
+      <div class="tl-title">入住 Airbnb + 高老师一行人从马德里到达</div>
+      <div class="tl-desc">马德里→巴塞罗那高铁 AVE 约2.5h，到 Barcelona Sants → 地铁 L3 约10min 到住处</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">16:00</div>
+      <div class="tl-title">🎉 四人会合！</div>
+      <div class="tl-desc">旅途正式开始</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">16:00 - 16:45</div>
+      <div class="tl-title">Casa Batlló 巴特罗之家（外观）</div>
+      <div class="tl-desc">从 Airbnb 步行3分钟。今天先看外观：海洋主题的波浪形阳台、龙脊屋顶、碎瓷片贴面。明天 9:30 入内参观</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从住处 5min</span><span class="tl-badge free">外观免费</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">16:45 - 17:30</div>
+      <div class="tl-title">Passeig de Gràcia 大道漫步</div>
+      <div class="tl-desc">这条街本身就是露天博物馆。地面六角形瓷砖（高迪设计，海星海螺图案）、现代主义路灯。走到 Casa Milà / La Pedrera 看外观</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 步行 6min</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">17:30 - 18:30</div>
+      <div class="tl-title">Manzana de la Discordia 不和谐街区</div>
+      <div class="tl-desc">Passeig de Gràcia 35-43号：三位建筑师的作品紧挨在一起 — Casa Lleó Morera（蒙塔内尔）、Casa Amatller（普伊赫）、Casa Batlló（高迪）。风格各异却比邻而居</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">18:30 - 20:00</div>
+      <div class="tl-title">哥特区 Barri Gòtic 初探</div>
+      <div class="tl-desc">步行20min南下或地铁L3到Liceu。穿过 Plaça Catalunya → 中世纪小巷。途经 Pont del Bisbe 主教桥（哥特区最上镜的角度）、Plaça del Pi 松树广场</div>
+      <div class="tl-badges"><span class="tl-badge metro">🚇 L3 Passeig de Gràcia→Liceu 5min</span></div>
+    </div>
+  </div>
+
+  <div class="img-grid">
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Casa_Batllo_Overview_Barcelona_Spain_cut.jpg/1280px-Casa_Batllo_Overview_Barcelona_Spain_cut.jpg" alt="Casa Batlló" loading="lazy"><div class="gi-label">Casa Batlló 外观</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Barcelona_-_Carrer_del_Bisbe.jpg" alt="Gothic Quarter" loading="lazy"><div class="gi-label">哥特区 Pont del Bisbe</div></div>
+  </div>
+
+  <div class="timeline" style="margin-top:24px">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">20:00 - 21:30</div>
+      <div class="tl-title">晚餐 @ 哥特区/El Born</div>
+      <div class="tl-desc">见下方推荐</div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">21:30 - 23:00</div>
+      <div class="tl-title">夜游 El Born 区</div>
+      <div class="tl-desc">巴塞罗那最有活力的夜生活区：独立咖啡馆、鸡尾酒吧、街头艺术。在 Passeig del Born 大道露台来一杯 Vermouth 或 Gin Tonic</div>
+    </div>
+  </div>
+
+  <div class="collapsible-header" onclick="toggleCollapse(this)">
+    <h3>🍽️ 晚餐推荐（哥特区/El Born）</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body">
+    <div class="card-grid">
+      <div class="resto-card"><div class="resto-icon">🍾</div><div class="resto-info"><h4>El Xampanyet</h4><p>1929年老字号。蓝白瓷砖墙面，木桶 Cava（€2.5/杯），anchoas（腌凤尾鱼）是灵魂菜品</p><p class="dist">📍 Carrer de Montcada 22 · El Born</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🥂</div><div class="resto-info"><h4>Bar Cañete</h4><p>高级 tapas，吧台看厨师现做。海鲜和火腿是强项。价格偏高但品质很值</p><p class="dist">📍 Carrer de la Unió 17 · La Rambla 附近</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🕯️</div><div class="resto-info"><h4>La Vinateria del Call</h4><p>藏在犹太街区的小酒馆，烛光昏暗气氛极好。奶酪拼盘、烤蔬菜、本地红酒</p><p class="dist">📍 Carrer de Sant Domènec del Call 9</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🍸</div><div class="resto-info"><h4>Bormuth</h4><p>本地年轻人爱的 vermouth bar，tapas便宜好吃，坐在 Plaça Comercial 广场露台看人来人往</p><p class="dist">📍 Born 区</p></div></div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 Insider Tips</h4>
+    <ul>
+      <li><strong>不一定要买票进 Casa Batlló</strong>（明天会进），但一定要在街对面拍全景——那是最佳角度</li>
+      <li>注意看 Passeig de Gràcia 地面的<strong>六角形瓷砖</strong>——高迪设计的海星和海螺图案，很多人走过都没注意</li>
+      <li>西班牙人晚餐在 21:00-23:00，13:00去餐厅可能还没开始午市</li>
+      <li>El Xampanyet 站着吃是常态——找个缝挤进去就对了</li>
+    </ul>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+
+<!-- =================== DAY 3 =================== -->
+<section class="day-section" id="day3">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 3</div>
+    <h2 class="day-title">巴塞罗那 · 高迪的曲线世界</h2>
+    <div class="day-meta">
+      <span>5月3日 周六</span>
+      <span class="tag">🌡️ 16-22°C</span>
+      <span class="tag">🚶 全天步行+地铁</span>
+      <span class="tag">📏 ~14.7km 步行量</span>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/%CE%A3%CE%B1%CE%B3%CF%81%CE%AC%CE%B4%CE%B1_%CE%A6%CE%B1%CE%BC%CE%AF%CE%BB%CE%B9%CE%B1_2941.jpg/1280px-%CE%A3%CE%B1%CE%B3%CF%81%CE%AC%CE%B4%CE%B1_%CE%A6%CE%B1%CE%BC%CE%AF%CE%BB%CE%B9%CE%B1_2941.jpg" alt="Sagrada Familia" loading="lazy">
+    <div class="overlay">
+      <h3>Sagrada Família 圣家堂</h3>
+      <p>高迪耗尽后半生的作品，计划于2026年完工 — 你们可能赶上它最后的施工阶段</p>
+    </div>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-s);margin-bottom:16px"><strong>动线设计：</strong>Eixample（Casa Batlló + La Pedrera）→ 圣家堂 → Park Güell → <em>地铁L3</em> → 哥特区 → El Born → Barceloneta 日落。南→北→南一条线</p>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">9:00 - 9:30</div>
+      <div class="tl-title">早餐 + 出门</div>
+      <div class="tl-desc">在 Airbnb 附近的咖啡馆吃早餐。推荐 La Bodegueta（Rambla de Catalunya 100，步行3min）</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">9:30 - 11:00</div>
+      <div class="tl-title">🏛️ Casa Batlló 巴特罗之家（入内参观）</div>
+      <div class="tl-desc">从 Airbnb 步行5分钟。整栋建筑没有直线和直角 — 高迪说"直线属于人类，曲线属于上帝"。<br><br><strong>亮点：</strong>① 贵族楼层的海洋意象窗户 ② 天井的蓝色瓷砖渐变 — 从顶部浅蓝到底部深蓝，模拟海水深度变化 ③ 龙脊屋顶的十字架和鳞片状彩瓦<br><br>含AR增强现实导览，用自己手机扫描就能看到高迪的设计意图动画</div>
+      <div class="tl-badges">
+        <span class="tl-badge walk">🚶 从住处 5min</span>
+        <span class="tl-badge ticket">门票 ~€35 含AR导览</span>
+        <span class="booking-ok">已预约 9:30</span>
+      </div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">11:00 - 11:10</div>
+      <div class="tl-title">步行前往 La Pedrera</div>
+      <div class="tl-desc">沿 Passeig de Gràcia 往北走6分钟</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 534m · 6min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">11:10 - 12:10</div>
+      <div class="tl-title">🏛️ Casa Milà / La Pedrera 米拉之家</div>
+      <div class="tl-desc">高迪最后的民居作品。<strong>屋顶天台</strong>是最大看点 — 一群戴着面具的"星球大战士兵"般的烟囱守卫，背景是城市天际线。上午光线好</div>
+      <div class="tl-badges">
+        <span class="tl-badge ticket">门票 ~€25</span>
+        <span class="booking-alert">强烈建议提前网上购票</span>
+      </div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:10 - 12:30</div>
+      <div class="tl-title">前往圣家堂</div>
+      <div class="tl-desc">步行19分钟（1.6km）或地铁 L3 Diagonal → L5 Sagrada Família（约10min）</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 1.6km · 19min</span><span class="tl-badge metro">🚇 或地铁 10min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:30 - 12:45</div>
+      <div class="tl-title">圣家堂外部拍照</div>
+      <div class="tl-desc"><strong>最佳拍照点：</strong>对面的 Plaça de Gaudí 小公园，有水池倒影可以拍出经典构图。诞生立面(Nativity Facade)面朝东北，上午光线正好</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:45 - 14:30</div>
+      <div class="tl-title">🏛️ Sagrada Família 圣家堂（入内参观）</div>
+      <div class="tl-desc">高迪从1882年接手至1926年去世，耗尽后半生。内部的<strong>"光之森林"</strong>让所有人震撼 — 树干形立柱分叉延伸到穹顶，彩色玻璃窗把阳光染成整片红橙蓝绿。<br><br><strong>建议加购登塔票</strong>（诞生立面塔 > 受难立面塔，景观更好），近距离看石雕细节和俯瞰城市</div>
+      <div class="tl-badges">
+        <span class="tl-badge ticket">门票 €26 / 含登塔 €36</span>
+        <span class="booking-ok">已预约 12:45</span>
+      </div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">14:30 - 15:15</div>
+      <div class="tl-title">🍽️ 午餐（圣家堂附近）</div>
+      <div class="tl-desc"><strong>La Paradeta Sagrada Família</strong>（Passatge de Simó 18，步行5min）— 海鲜自选称重式，像菜市场点菜，新鲜便宜有趣。或 <strong>La Pepita</strong>（Carrer de Còrsega 343）— 年轻态 tapas bar，创意三明治</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:15 - 15:45</div>
+      <div class="tl-title">前往桂尔公园</div>
+      <div class="tl-desc">步行29min（2.5km上坡路）或地铁 L5 Sagrada Família → Diagonal 转 L3 → Vallcarca 出站后步行10min上山。推荐地铁</div>
+      <div class="tl-badges"><span class="tl-badge metro">🚇 地铁+步行 ~25min（推荐）</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:45 - 17:15</div>
+      <div class="tl-title">🏛️ Park Güell 桂尔公园</div>
+      <div class="tl-desc">高迪为企业家桂尔设计的"花园城市"（商业失败，却成了传世杰作）。<br><br><strong>必看：</strong>① 入口两座糖果屋门房 ② 大台阶上的<strong>马赛克蜥蜴 El Drac</strong> — 巴塞罗那非官方吉祥物，合影必拍 ③ <strong>波浪长椅 Banc de Trencadís</strong> — 世界最长的马赛克长椅，坐上面看整个巴塞罗那+地中海 ④ 森林中的倾斜柱廊</div>
+      <div class="tl-badges">
+        <span class="tl-badge ticket">门票 €10</span>
+        <span class="booking-alert">必须提前网上预约时段</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-grid three">
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Casa_Batllo_Overview_Barcelona_Spain_cut.jpg/1280px-Casa_Batllo_Overview_Barcelona_Spain_cut.jpg" alt="Casa Batlló" loading="lazy"><div class="gi-label">Casa Batlló</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Casa_Mil%C3%A0%2C_general_view.jpg/1280px-Casa_Mil%C3%A0%2C_general_view.jpg" alt="La Pedrera" loading="lazy"><div class="gi-label">La Pedrera</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Parc_guell_-_panoramio.jpg/1280px-Parc_guell_-_panoramio.jpg" alt="Park Güell" loading="lazy"><div class="gi-label">Park Güell</div></div>
+  </div>
+
+  <div class="insider"><strong>Park Güell 省钱秘籍：</strong>公园的<strong>免费区域</strong>（外围步道和树林）其实也很美，而且人少。如果没约到好时段，外围步道+山顶平台同样能看到城市全景。另外 <strong>Hospital de Sant Pau</strong>（圣保罗医院）离圣家堂步行10分钟，蒙塔内尔设计的 Art Nouveau 建筑群，世界遗产，游客极少但美到令人发指</div>
+
+  <div class="timeline" style="margin-top:24px">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">17:15 - 17:30</div>
+      <div class="tl-title">🚇 地铁下山到哥特区</div>
+      <div class="tl-desc">L3 Lesseps → Liceu，直达，约12分钟。<strong>不要走路！</strong>步行4.7km要56分钟</div>
+      <div class="tl-badges"><span class="tl-badge metro">🚇 L3 直达 12min（必坐地铁）</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">17:30 - 18:30</div>
+      <div class="tl-title">哥特区 + El Born 深度游</div>
+      <div class="tl-desc">穿过中世纪小巷 → Pont del Bisbe 主教桥 → Plaça del Pi → 过 Via Laietana 进入 El Born。独立咖啡馆、街头艺术、毕加索博物馆外观</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 哥特区→El Born 10min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">18:30 - 19:00</div>
+      <div class="tl-title">步行到 Barceloneta 海滩</div>
+      <div class="tl-desc">从 El Born 往南走12分钟到达海边</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 1.0km · 12min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">19:00 - 19:30</div>
+      <div class="tl-title">Can Paixano / La Xampanyeria</div>
+      <div class="tl-desc">海滩旁的传奇站立酒吧。一杯 Cava（€1.5!）+ 一份火腿三明治（€3），在嘈杂的人群中碰杯 — 这就是巴塞罗那的生活</div>
+      <div class="tl-badges"><span class="tl-badge free">超便宜</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">20:00 - 21:00</div>
+      <div class="tl-title">🌅 Barceloneta 海滩日落</div>
+      <div class="tl-desc">5月日落约20:45。坐在沙滩上看太阳沉入天际线。带一瓶超市买的 Cava（€5-8），完美。旁边的 W Hotel 帆船酒店是巴塞罗那地标</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">21:00+</div>
+      <div class="tl-title">晚餐</div>
+      <div class="tl-desc"><strong>Kaiku</strong>（Plaça del Mar 1，海滩边）— 黑色鱿鱼墨汁饭和烤章鱼。或 <strong>El Nacional</strong>（Passeig de Gràcia 24 bis，走回住处路上）— 1889年旧车库改造成四个餐厅+四个酒吧，空间超美</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">回程</div>
+      <div class="tl-title">🚇 地铁回住处</div>
+      <div class="tl-desc">L4 Barceloneta → Passeig de Gràcia，约10分钟。<strong>不要走路</strong>，3km要36分钟</div>
+      <div class="tl-badges"><span class="tl-badge metro">🚇 L4 直达 10min</span></div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 Insider Tips</h4>
+    <ul>
+      <li><strong>La Pedrera 不一定要买票进内部</strong>，但<strong>屋顶天台</strong>是精华中的精华。如果时间或预算有限，只买屋顶票就够了</li>
+      <li><strong>圣家堂拍照技巧：</strong>对面 Plaça de Gaudí 的水池倒影是经典构图。上午光线照亮诞生立面，下午照亮受难立面</li>
+      <li><strong>Park Güell 下山走步道</strong>而不是原路返回，沿途有当地居民区的市井风光，能看到挂满衣服的阳台</li>
+      <li><strong>Can Paixano 的正确打开方式：</strong>挤进去，用手指指着要什么，大声说数量。不会西班牙语没关系，比划就行</li>
+      <li><strong>交通卡：</strong>买 T-Casual 10次票（Zone 1，€11.35），地铁公交通用，今天至少坐3-4次地铁，非常划算</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================== DAY 4 =================== -->
+<section class="day-section" id="day4">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 4</div>
+    <h2 class="day-title">巴塞罗那 → 卡塔尼亚</h2>
+    <div class="day-meta">
+      <span>5月4日 周日</span>
+      <span class="tag">⚠️ 11:00退房</span>
+      <span class="tag">✈️ 20:20飞卡塔尼亚</span>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Museu_nacional_d%27art_de_catalunya_2.jpg/1280px-Museu_nacional_d%27art_de_catalunya_2.jpg" alt="MNAC" loading="lazy">
+    <div class="overlay">
+      <h3>Montjuïc 蒙锥克山</h3>
+      <p>MNAC台阶上回望 — 整个巴塞罗那城市全景尽收眼底</p>
+    </div>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-s);margin-bottom:16px"><strong>行李方案：</strong>11:00退房后，用 Stasher/Bounce/Radical Storage 在 Passeig de Gràcia 附近寄存（€5-6/件）。17:30去机场前取回</p>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">9:00 - 10:00</div>
+      <div class="tl-title">Mercat de Sant Antoni 圣安东尼市场</div>
+      <div class="tl-desc">⚠️ La Boqueria 周日关门！但 Sant Antoni 周日有<strong>古董书市</strong> — 二手书、旧明信片、黑胶唱片，<strong>只在周日开</strong>！从 Airbnb 步行12分钟</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 1.5km · 18min</span><span class="tl-badge free">免费逛</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">10:00 - 11:00</div>
+      <div class="tl-title">收拾退房 + 寄存行李</div>
+      <div class="tl-desc">回 Airbnb 收拾退房，去附近的行李寄存点放好</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">11:00 - 11:30</div>
+      <div class="tl-title">前往蒙锥克</div>
+      <div class="tl-desc">地铁L3到Espanya站。出来就是 Plaça d'Espanya 西班牙广场 — 两座威尼斯风格塔楼</div>
+      <div class="tl-badges"><span class="tl-badge metro">🚇 L3 到 Espanya</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">11:30 - 12:15</div>
+      <div class="tl-title">MNAC 加泰罗尼亚国家艺术博物馆（台阶）</div>
+      <div class="tl-desc"><strong>不一定要进博物馆（€12），但一定要爬上台阶！</strong>站在MNAC门口回望 — 整个巴塞罗那全景尽收眼底。这是免费的、也是巴塞罗那最被低估的观景点之一</div>
+      <div class="tl-badges"><span class="tl-badge free">台阶+观景 免费</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:15 - 13:00</div>
+      <div class="tl-title">蒙锥克城堡 Castell de Montjuïc</div>
+      <div class="tl-desc">坐 Teleféric de Montjuïc 空中缆车上去（€14.20往返），17世纪要塞，360° 无死角海景+城市景</div>
+      <div class="tl-badges"><span class="tl-badge drive">🚡 缆车 €14.20 往返</span><span class="tl-badge ticket">城堡 €5</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">13:00 - 14:00</div>
+      <div class="tl-title">🍽️ 午餐 Poble Sec</div>
+      <div class="tl-desc">缆车下山到 Paral·lel。<strong>Quimet & Quimet</strong>（Carrer del Poeta Cabanyes 25）— 巴塞罗那最传奇的站立式 tapas bar，父子三代经营。⚠️ 周日可能休息！备选 Federal Café</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">14:30 - 15:30</div>
+      <div class="tl-title">Port Vell 旧港漫步</div>
+      <div class="tl-desc">沿 Rambla de Mar 木栈桥走到 Maremagnum 购物中心（买纪念品）。港口里帆船满满的地中海慵懒感</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从Poble Sec ~20min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:30 - 16:30</div>
+      <div class="tl-title">La Rambla 兰布拉大道</div>
+      <div class="tl-desc">从港口往北走回 Plaça Catalunya。1.2公里的步行街：梧桐树、花摊、行为艺术家。在 Liceu 地铁站附近找<strong>Miró的圆形马赛克</strong> — 就镶在地面上</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 941m · 11min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">16:30 - 17:00</div>
+      <div class="tl-title">回 Eixample 取行李</div>
+      <div class="tl-desc">步行或地铁回 Passeig de Gràcia 取行李</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">17:30</div>
+      <div class="tl-title">✈️ 出发去机场</div>
+      <div class="tl-desc">Aerobus 从 Plaça Catalunya 出发，35分钟到T1/T2，每5分钟一班，€7.75</div>
+      <div class="tl-badges"><span class="tl-badge drive">🚌 Aerobus 35min €7.75</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">20:20</div>
+      <div class="tl-title">航班飞卡塔尼亚</div>
+      <div class="tl-desc">飞行约2小时，约22:30抵达</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">22:30 - 23:30</div>
+      <div class="tl-title">抵达卡塔尼亚 → 入住</div>
+      <div class="tl-desc">Alibus 机场大巴到市中心（20min，€4）或打车（€20）。入住 Luxury Home Keops，81 Via Stella Polare。如果饿了：Via Plebiscito 一带深夜<strong>马肉烤肉摊 chioschi</strong> — 烤马肉三明治+啤酒，纯local体验</div>
+    </div>
+  </div>
+
+  <div class="img-grid">
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Fale_-_Spain_-_Barcelona_-_8.jpg/1280px-Fale_-_Spain_-_Barcelona_-_8.jpg" alt="Montjuïc" loading="lazy"><div class="gi-label">Montjuïc 蒙锥克山</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Port_Vell_Rambla_de_Mar_04.JPG/1280px-Port_Vell_Rambla_de_Mar_04.JPG" alt="Port Vell" loading="lazy"><div class="gi-label">Port Vell 旧港</div></div>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 Insider Tips</h4>
+    <ul>
+      <li><strong>MNAC 的台阶本身就是景点</strong> — 完全不用进博物馆，光是站在门口看城市全景就值得爬上来。如果进馆，里面有全世界最好的罗马式壁画收藏</li>
+      <li><strong>不要走路从蒙锥克城堡到港口</strong>（3.1km，37min全是下坡但很累），坐缆车下到 Paral·lel 更明智</li>
+      <li><strong>La Rambla 的 Miró 马赛克</strong>不起眼，很多人踩过都没注意 — 在 Liceu 地铁站正上方的地面，一个圆形彩色图案</li>
+      <li>⚠️ <strong>La Rambla 扒手</strong>高发区！手机钱包放前口袋，背包背前面</li>
+      <li>5月4日是周日，很多小店休息。<strong>La Boqueria 关门</strong>，但大景点正常</li>
+    </ul>
+  </div>
+</section>
+
+<div class="section-divider">✈️</div>
+
+
+<!-- =================== DAY 5 =================== -->
+<section class="day-section" id="day5">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 5</div>
+    <h2 class="day-title">卡塔尼亚 · 火山岩上的巴洛克</h2>
+    <div class="day-meta">
+      <span>5月5日 周一</span>
+      <span class="tag">🌡️ 15-24°C</span>
+      <span class="tag">🚶 全程步行 ~5.1km</span>
+      <span class="tag">🌋 火山之城</span>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Catania_vista_dall%27alto_e_il_vulcano_Etna_a_sovrastarla.jpg/1280px-Catania_vista_dall%27alto_e_il_vulcano_Etna_a_sovrastarla.jpg" alt="Catania with Etna" loading="lazy">
+    <div class="overlay">
+      <h3>Catania 卡塔尼亚</h3>
+      <p>建在埃特纳火山熔岩流上的城市 — 被摧毁又重建了7次，用黑色火山岩铸就的巴洛克</p>
+    </div>
+  </div>
+
+  <div class="weather-bar">
+    <div class="weather-item"><span>☀️</span>晴 15-24°C（比巴塞罗那热）</div>
+    <div class="weather-item"><span>🌋</span>天气好时从街上可以看到埃特纳雪顶</div>
+    <div class="weather-item"><span>👕</span>短袖+防晒</div>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-s);margin-bottom:16px;background:var(--surface);padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--border)"><strong>住处到老城：</strong>Luxury Home Keops (Via Stella Polare 81) → Piazza del Duomo 步行<strong>10分钟 (906m)</strong>，全天步行总量仅 5.1km，非常轻松</p>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">8:00 - 8:30</div>
+      <div class="tl-title">☕ 早餐：Granita con Brioche</div>
+      <div class="tl-desc">西西里最标志性的早餐！<strong>Granita</strong> 不是沙冰 — 它是用糖浆和水果浆慢速搅拌冻成的半冰半浆质地，配温热的 <strong>Brioche</strong> 掰开夹着吃。<br><br><strong>推荐口味：</strong>杏仁 (mandorla) — 奶白色浓郁坚果香；开心果 (pistacchio) — 翠绿色，Bronte产区特级<br><br><strong>推荐：</strong>Pasticceria Savia（Via Etnea 302，高评分老字号）或 Caffè del Duomo（大教堂广场旁）</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">9:00 - 10:15</div>
+      <div class="tl-title">La Pescheria 鱼市</div>
+      <div class="tl-desc">卡塔尼亚的灵魂。<strong>必须早上来</strong> — 渔贩站在黑色熔岩石台上，挥舞着剑鱼、章鱼、海胆，吆喝声震天。地面上血水和碎冰混在一起，生猛得不可思议。<br><br>旁边小摊卖<strong>现炸海鲜锥 fritto misto</strong>（€3-5），站着吃。<strong>周一正常营业</strong>（周日休息）</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从住处 10min</span><span class="tl-badge free">免费</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">10:15 - 10:45</div>
+      <div class="tl-title">Piazza del Duomo 大教堂广场</div>
+      <div class="tl-desc">卡塔尼亚的心脏。广场中央是 <strong>Fontana dell'Elefante 大象喷泉</strong> — 一头黑色熔岩石雕大象驮着埃及方尖碑，城市标志（当地人叫它 "Liotru"）。广场被巴洛克宫殿环绕</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从鱼市 3min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">10:45 - 11:15</div>
+      <div class="tl-title">🏛️ Cattedrale di Sant'Agata 大教堂</div>
+      <div class="tl-desc">外观宏伟巴洛克（1693年地震后重建），内部保留诺曼时期结构。地下室有罗马浴场遗址（€3）。作曲家<strong>贝利尼</strong>的墓在这里</div>
+      <div class="tl-badges"><span class="tl-badge free">免费入场</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">11:15 - 12:00</div>
+      <div class="tl-title">Via Crociferi 十字街</div>
+      <div class="tl-desc">UNESCO世遗核心区。不到300米的窄街上排列 <strong>4座巴洛克教堂</strong>和多座修道院。几乎没有游客，安静得能听见自己脚步。注意看黑色火山岩雕刻细节</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从广场 7min</span><span class="tl-badge free">免费</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:00 - 12:30</div>
+      <div class="tl-title">Via Etnea 主街漫步</div>
+      <div class="tl-desc">卡塔尼亚"大动脉"，笔直向北3公里。<strong>站在街上抬头看</strong> — 街道尽头天际线上可以清晰看到<strong>埃特纳火山的雪顶</strong></div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 5min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:30 - 14:00</div>
+      <div class="tl-title">🍽️ 午餐</div>
+      <div class="tl-desc">见下方推荐</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">14:00 - 14:45</div>
+      <div class="tl-title">Castello Ursino 乌尔西诺城堡</div>
+      <div class="tl-desc">13世纪腓特烈二世城堡。有趣的是它<strong>原来建在海边悬崖上</strong>，1669年火山大喷发后，熔岩流把海岸线推远了好几百米，现在被困在内陆</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从Etnea 1.3km · 15min</span><span class="tl-badge ticket">€6</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">14:45 - 15:30</div>
+      <div class="tl-title">Giardino Bellini 贝利尼花园</div>
+      <div class="tl-desc">百年古树、棕榈大道、天鹅池。以歌剧作曲家 Vincenzo Bellini 命名。有一座钟亭可以登高看城市</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从城堡 1.5km · 17min</span><span class="tl-badge free">免费</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">16:00+</div>
+      <div class="tl-title">前往婚礼朋友处会合</div>
+      <div class="tl-desc">退房后去和结婚的朋友会合，晚上住在婚礼场地</div>
+    </div>
+  </div>
+
+  <div class="img-grid three">
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Catania_-_Fontana_dell%27Elefante_03.jpg/1280px-Catania_-_Fontana_dell%27Elefante_03.jpg" alt="Elephant Fountain" loading="lazy"><div class="gi-label">大象喷泉 Liotru</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Catania_Cathedral_msu2017-9550.jpg/1280px-Catania_Cathedral_msu2017-9550.jpg" alt="Catania Cathedral" loading="lazy"><div class="gi-label">圣阿加塔大教堂</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Catania_-_Castello_Ursino_03.jpg/1280px-Catania_-_Castello_Ursino_03.jpg" alt="Castello Ursino" loading="lazy"><div class="gi-label">Castello Ursino</div></div>
+  </div>
+
+  <div class="collapsible-header" onclick="toggleCollapse(this)">
+    <h3>🍽️ 午餐推荐（老城步行可达）</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body">
+    <div class="card-grid">
+      <div class="resto-card"><div class="resto-icon">🐟</div><div class="resto-info"><h4>Osteria Antica Marina</h4><p>紧邻鱼市，菜品全部用当天采购食材。必点 Pasta con le Sarde 和海胆意面。⚠️ 建议提前预约</p><p class="dist">📍 Via Pardo 29 · 鱼市旁</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🏛️</div><div class="resto-info"><h4>Me Cumpari Turiddu</h4><p>18世纪宫殿里的传统餐厅。Pasta alla Norma 很正宗，有露台对着老城</p><p class="dist">📍 Piazza Turi Ferro 36</p></div></div>
+      <div class="resto-card"><div class="resto-icon">🥪</div><div class="resto-info"><h4>FUD Bottega Sicula</h4><p>本地食材三明治和沙拉。年轻人多，轻松随意</p><p class="dist">📍 Via Santa Filomena 35</p></div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text-s);margin-top:8px"><strong>街头快吃：</strong>鱼市或 Via Plebiscito 小摊买 <strong>Arancini 炸饭团</strong>（€2-3），肉酱 ragù 口味是卡塔尼亚经典。注意：卡塔尼亚的 Arancini 是<strong>锥形</strong>的（不是巴勒莫的圆形），当地人很在乎这个区别！</p>
+  </div>
+
+  <div class="img-grid">
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Arancini_002.jpg/1280px-Arancini_002.jpg" alt="Arancini" loading="lazy"><div class="gi-label">Arancini 炸饭团</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Granita_originelle_au_citron_de_Sicile.jpg/1280px-Granita_originelle_au_citron_de_Sicile.jpg" alt="Granita" loading="lazy"><div class="gi-label">Granita 西西里冰糕</div></div>
+  </div>
+
+  <div class="insider"><strong>小众玩法：</strong><strong>Teatro Romano 罗马剧场</strong>（Via Vittorio Emanuele II）— 藏在民居之间的2世纪罗马剧场，公寓阳台直接挂在古罗马墙上，超现实（€6）。<br>傍晚去 <strong>Via Plebiscito 马肉街</strong> — 一排排 chioschi 卖烤马肉三明治（卡塔尼亚独有传统），配 <strong>Seltz al Limone</strong>（柠檬苏打，从古老 siphon 瓶里打出来）</div>
+
+  <div class="tip-box">
+    <h4>💡 Insider Tips</h4>
+    <ul>
+      <li><strong>不一定要买票进 Castello Ursino</strong>，但城堡外围的护城河遗迹和外观就很震撼 — 想想它曾经就建在海边悬崖上</li>
+      <li><strong>Via Etnea 拍埃特纳火山：</strong>从街南端往北拍，街道作为前景、火山作为背景的构图是卡塔尼亚最经典的画面</li>
+      <li><strong>鱼市拍照最佳时间：</strong>9:00前，渔贩最忙、最生猛、光线最好</li>
+      <li><strong>Bronte 开心果</strong>是"绿金" — 埃特纳火山旁小镇出产，可以买开心果酱（€8-12）带回去，这是西西里最值得买的手信</li>
+      <li><strong>Cannoli 要吃现填的！</strong>如果 ricotta 馅提前装好放了几小时，外壳会变软 — 这在西西里人看来不可接受</li>
+    </ul>
+  </div>
+
+  <div class="collapsible-header" onclick="toggleCollapse(this)">
+    <h3>🎭 卡塔尼亚当地特色</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body">
+    <div class="info-grid">
+      <div class="info-item"><h4>🏴 黑色城市</h4><p>几乎所有建筑都用黑色火山岩(basalt)建造。阴天有点哥特，阳光下格外有质感</p></div>
+      <div class="info-item"><h4>🌋 埃特纳火山</h4><p>欧洲最高最活跃的火山(3357m)，就在城市北边。好天气时 Via Etnea 可以直接看到</p></div>
+      <div class="info-item"><h4>⛪ 圣阿加塔崇拜</h4><p>城市守护圣人。每年2月的节日是全世界第三大宗教节日</p></div>
+      <div class="info-item"><h4>🔒 安全</h4><p>比巴塞罗那安全得多，但在鱼市和火车站附近仍需注意随身物品</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== DAY 6 =================== -->
+<section class="day-section" id="day6">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 6</div>
+    <h2 class="day-title">婚礼日 💍</h2>
+    <div class="day-meta">
+      <span>5月6日 周二</span>
+      <span class="tag">🎉 全天婚礼</span>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:60px 20px;background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-radius:var(--radius);margin:20px 0">
+    <div style="font-size:64px;margin-bottom:16px">💒</div>
+    <h3 style="font-family:var(--serif);font-size:1.8rem;margin-bottom:8px">全天参加婚礼</h3>
+    <p style="color:var(--text-s);font-size:15px;max-width:500px;margin:0 auto">享受西西里婚宴的盛大和热情！不安排其他游览行程</p>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 西西里婚宴小知识</h4>
+    <ul>
+      <li>传统西西里婚宴可以持续 <strong>5-8小时</strong>，十几道菜从 antipasti 到 dolce 一道一道上</li>
+      <li>酒水无限供应，最后通常有现场乐队和舞蹈</li>
+      <li>做好在桌上坐到深夜的准备 — 西西里人对婚宴的热情不亚于对食物的热情</li>
+    </ul>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+
+<!-- =================== DAY 7 =================== -->
+<section class="day-section" id="day7">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 7</div>
+    <h2 class="day-title">陶尔米纳 · 海天之间的剧场</h2>
+    <div class="day-meta">
+      <span>5月7日 周三</span>
+      <span class="tag">🌡️ 15-23°C</span>
+      <span class="tag">🚗 自驾日</span>
+      <span class="tag">🌅 日落 19:50</span>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Taormina_BW_2012-10-05_16-23-05_stitch.jpg/1280px-Taormina_BW_2012-10-05_16-23-05_stitch.jpg" alt="Teatro Antico Taormina" loading="lazy">
+    <div class="overlay">
+      <h3>Teatro Antico di Taormina</h3>
+      <p>公元前3世纪希腊剧场 — 透过拱门看到大海和埃特纳火山，全世界最壮观的剧场视角</p>
+    </div>
+  </div>
+
+  <div class="weather-bar">
+    <div class="weather-item"><span>☀️</span>晴 15-23°C</div>
+    <div class="weather-item"><span>🌊</span>海水约18-19°C</div>
+    <div class="weather-item"><span>🌅</span>日落 19:50</div>
+    <div class="weather-item"><span>👕</span>短袖+薄外套（山上风大）</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">上午</div>
+      <div class="tl-title">🚗 从婚礼住处出发自驾</div>
+      <div class="tl-desc">告别新人，开启自驾之旅</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">途中停靠 30min</div>
+      <div class="tl-title">Aci Trezza 独眼巨人海岸</div>
+      <div class="tl-desc">从卡塔尼亚方向约20分钟车程。海中耸立着巨大的黑色熔岩石柱 <strong>Faraglioni dei Ciclopi</strong> — 荷马史诗中独眼巨人向奥德修斯扔出的石头。五彩渔船停在黑色岩石旁，画面感极强</div>
+      <div class="tl-badges"><span class="tl-badge drive">🚗 从卡塔尼亚 12.7km · 20min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">途中可选</div>
+      <div class="tl-title">Aci Castello</div>
+      <div class="tl-desc">就在 Aci Trezza 隔壁。黑色火山岩悬崖上的诺曼城堡，外观很震撼（€4进入）。赶时间看一眼外观即可</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">中午前后</div>
+      <div class="tl-title">抵达陶尔米纳</div>
+      <div class="tl-desc">🅿️ <strong>停车重要提示：</strong>陶尔米纳老城完全禁止外部车辆！把车停在 <strong>Parking Lumbi</strong>（€5/天，有免费 shuttle 上山）或 <strong>Parking Porta Catania</strong>（更近但更贵）。Airbnb 在 Via Crocefisso 3，靠近 Porta Catania</div>
+      <div class="tl-badges"><span class="tl-badge drive">🚗 从 Aci Trezza 46.7km · 43min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">12:30 - 13:30</div>
+      <div class="tl-title">🍽️ 午餐 + Bam Bar</div>
+      <div class="tl-desc"><strong>Bam Bar</strong>（Via di Giovanni 45）— 陶尔米纳最有名的 granita 店，桃子 (pesca)、桑葚 (gelsi)、开心果口味都试试。午餐推荐 <strong>Trattoria da Nino</strong>（Via L. Pirandello 37）— 家庭式经营，pasta 份量足，性价比高</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">14:00 - 15:30</div>
+      <div class="tl-title">🏛️ Teatro Antico di Taormina 古希腊剧场</div>
+      <div class="tl-desc">陶尔米纳的灵魂。公元前3世纪希腊人建造，能容纳5400人。<strong>最震撼的是舞台背景</strong> — 透过残存的拱门，远处是湛蓝的爱奥尼亚海，左侧是埃特纳火山。下午光线最佳，阳光从海面反射上来照亮舞台<br><br>歌德1787年来此写道：<em>"从剧场看出去，是一幅包含了海洋和天空、火山和海岸线的完美画卷"</em></div>
+      <div class="tl-badges">
+        <span class="tl-badge walk">🚶 从住处 833m · 10min</span>
+        <span class="tl-badge ticket">门票 €10</span>
+      </div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:30</div>
+      <div class="tl-title">入住 Airbnb</div>
+      <div class="tl-desc">Via Crocefisso 3，从剧场步行到 Porta Catania 约10分钟。放下行李</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">15:45 - 16:30</div>
+      <div class="tl-title">Corso Umberto I 主街漫步</div>
+      <div class="tl-desc">从 Porta Messina 到 Porta Catania 全长800米。精品店、咖啡馆、手工陶瓷。<br><br><strong>关键节点：</strong>① <strong>Piazza IX Aprile</strong> — 最壮观的观景台，面朝大海和火山 ② <strong>Piazza del Duomo</strong> — 13世纪大教堂+巴洛克喷泉 ③ <strong>Naumachie</strong> — 罗马时期砖墙遗迹，藏在小巷里，很多人走过没注意到</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">16:30 - 17:30</div>
+      <div class="tl-title">Isola Bella 美丽岛</div>
+      <div class="tl-desc">从 Piazza IX Aprile 旁的 <strong>Funivia 缆车</strong>下到 Mazzarò 海滩（€3单程）。微型岛屿通过细沙洲与海滩相连 — 潮汐变化时沙洲会被淹没又露出。水极清碧绿色。吕克·贝松《碧海蓝天》取景地</div>
+      <div class="tl-badges">
+        <span class="tl-badge walk">🚶 从Corso 2.2km · 26min</span>
+        <span class="tl-badge drive">🚡 或缆车 €3</span>
+        <span class="tl-badge ticket">岛上 €4</span>
+      </div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">18:00 - 19:30</div>
+      <div class="tl-title">🚗 自驾上 Castelmola + 日落</div>
+      <div class="tl-desc">从陶尔米纳开车10分钟（6.2km）。悬崖顶上的微型中世纪村庄，海拔500+米。<br><br>去 <strong>Bar Turrisi</strong> 喝杯招牌 <strong>Vino alla Mandorla 杏仁酒</strong>（这家bar以"大胆"装饰闻名 — 满屋子生殖崇拜主题雕塑）。<br>在 <strong>Piazza Sant'Antonio</strong> 看日落（19:50），脚下是陶尔米纳，远处是大海和火山</div>
+      <div class="tl-badges"><span class="tl-badge drive">🚗 6.2km · 10min</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">20:00 - 21:30</div>
+      <div class="tl-title">🍽️ 晚餐</div>
+      <div class="tl-desc">回陶尔米纳。<strong>Osteria Nero D'Avola</strong>（Piazza San Domenico）— 海鲜pasta和 pistachio pesto pasta 出色，全是西西里本地酒。或 <strong>Pizzeria Villa Zuccaro</strong> — 百年老宅花园里吃 pizza</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">21:30+</div>
+      <div class="tl-title">夜游 Corso Umberto</div>
+      <div class="tl-desc">灯光下的陶尔米纳比白天更有魅力。在 Piazza IX Aprile 坐下来，一杯 Nero d'Avola 或 Etna Rosso，看远处灯火和星空</div>
+    </div>
+  </div>
+
+  <div class="img-grid three">
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Aci_Trezza_060413.JPG/1280px-Aci_Trezza_060413.JPG" alt="Aci Trezza" loading="lazy"><div class="gi-label">Aci Trezza 独眼巨人岩</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/IsolaBellaView.jpg/1280px-IsolaBellaView.jpg" alt="Isola Bella" loading="lazy"><div class="gi-label">Isola Bella 美丽岛</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Castelmola%2C_view_square.JPG/1280px-Castelmola%2C_view_square.JPG" alt="Castelmola" loading="lazy"><div class="gi-label">Castelmola 山顶小镇</div></div>
+  </div>
+
+  <div class="insider"><strong>小众玩法：</strong><strong>Madonna della Rocca</strong> — 古希腊剧场上方山崖上的小教堂，要爬台阶约20分钟。从上方俯瞰整个剧场+海湾，日落尤其壮观，游客极少。<br><strong>Via Teatro Greco 后巷</strong> — 剧场后面安静小巷，挂满三角梅和晒衣绳，比 Corso Umberto 更有"老西西里"味道</div>
+
+  <div class="tip-box">
+    <h4>💡 Insider Tips</h4>
+    <ul>
+      <li><strong>不一定要买票上 Isola Bella 岛</strong>，从沙洲上看和踩水的体验就已经很棒了 — 免费</li>
+      <li><strong>Isola Bella 缆车 vs 步行：</strong>从 Corso Umberto 到海滩步行26min全是下坡台阶（回来就是上坡），缆车€3单程省力很多</li>
+      <li><strong>停车注意 ZTL！</strong>陶尔米纳老城限行区罚款很重。认准 ZTL 标志，停在 Parking Lumbi 最安全</li>
+      <li><strong>西西里人开车"热情"</strong> — 喇叭多、变道快。保持冷静</li>
+      <li><strong>Etna Rosso 红酒</strong> — 火山土壤赋予的矿物感，被誉为"地中海的勃艮第"。在陶尔米纳一定要点一瓶</li>
+      <li><strong>Teste di Moro 摩尔人头陶瓷</strong> — 西西里最标志性纪念品。背后的传说：少女发现摩尔情人有家室，怒砍其头做成花盆种罗勒</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================== DAY 8 =================== -->
+<section class="day-section" id="day8">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>DAY 8</div>
+    <h2 class="day-title">陶尔米纳晨光 · 各奔前程</h2>
+    <div class="day-meta">
+      <span>5月8日 周四</span>
+      <span class="tag">⏰ 10:00退房</span>
+      <span class="tag">✈️ 各自出发</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">8:00 - 8:45</div>
+      <div class="tl-title">☕ 最后的早餐</div>
+      <div class="tl-desc"><strong>Caffè Wunderbar</strong> — 伊丽莎白·泰勒和理查德·伯顿的最爱，坐在 Piazza IX Aprile 露台喝 espresso + cornetto，面朝大海。<br>或去 <strong>Bam Bar</strong> 再来一份 granita — 最 local 的告别方式</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">8:45 - 9:30</div>
+      <div class="tl-title">Giardini della Villa Comunale 公共花园</div>
+      <div class="tl-desc">英国贵妇 Florence Trevelyan 19世纪末建的花园。悬崖边上，透过地中海松看 Naxos 海湾。几座奇特的 <strong>"Victorian Follies"</strong> 砖石小塔 — 原来是观鸟台。清晨人少，非常宁静</div>
+      <div class="tl-badges"><span class="tl-badge walk">🚶 从住处 849m · 10min</span><span class="tl-badge free">免费</span></div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">9:30 - 10:00</div>
+      <div class="tl-title">🛍️ 买纪念品</div>
+      <div class="tl-desc"><strong>推荐：</strong>① Teste di Moro 摩尔人头陶瓷花盆 ② 开心果酱/pesto ③ Nero d'Avola 或 Etna Rosso 红酒 ④ 手工陶瓷</div>
+    </div>
+
+    <div class="tl-item"><div class="tl-dot"></div>
+      <div class="tl-time">10:00</div>
+      <div class="tl-title">退房 · 各自出发</div>
+      <div class="tl-desc">自驾前往各自的下一站。还车可以在卡塔尼亚机场或目的地城市。Buon viaggio! 🇮🇹</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <h4>💡 最后的 Tips</h4>
+    <ul>
+      <li><strong>Villa Comunale 不一定要特意去</strong>，但如果早上有20分钟闲逛 — 那个悬崖边的清晨宁静感，是整个旅行最好的收尾</li>
+      <li><strong>还车前加油：</strong>西西里油价比大陆略贵，但机场附近加油站价格更高，建议在镇上加满</li>
+    </ul>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- =================== PRACTICAL INFO =================== -->
+<section class="day-section" id="info">
+  <div class="day-header">
+    <div class="day-num"><span class="dot"></span>PRACTICAL</div>
+    <h2 class="day-title">实用信息速查</h2>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-item"><h4>🛂 签证</h4><p>西班牙+意大利均申根区，一个签证即可</p></div>
+    <div class="info-item"><h4>💶 货币</h4><p>均为欧元。信用卡/Apple Pay基本通用，备€50-100零钱应对小摊</p></div>
+    <div class="info-item"><h4>📱 电话卡</h4><p>欧盟漫游免费。否则机场买 Vodafone/Orange 预付卡（€15-20含流量）</p></div>
+    <div class="info-item"><h4>🔌 转换插头</h4><p>欧标圆头两孔（Type C/F）。西班牙和意大利通用同款</p></div>
+    <div class="info-item"><h4>🕐 时差</h4><p>同属CET（UTC+2夏令时）。两国之间无时差</p></div>
+    <div class="info-item"><h4>☀️ 防晒</h4><p>5月地中海紫外线已很强，SPF50+必备！尤其西西里</p></div>
+  </div>
+
+  <div class="collapsible-header" onclick="toggleCollapse(this)">
+    <h3>🍽️ 两国用餐文化差异</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body">
+    <div class="info-grid">
+      <div class="info-item"><h4>🇪🇸 西班牙</h4><p>午餐14-16点，晚餐21-23点。Tapas可以站着吃。不强制小费</p></div>
+      <div class="info-item"><h4>🇮🇹 意大利</h4><p>午餐12:30-14:30，晚餐19:30-21:00。Coperto（座位费€1-3）是正常的。Espresso站着喝更便宜</p></div>
+    </div>
+  </div>
+
+  <div class="collapsible-header" onclick="toggleCollapse(this)">
+    <h3>🎫 需提前预约的景点</h3><span class="arrow">▼</span>
+  </div>
+  <div class="collapsible-body">
+    <div style="display:grid;gap:8px;margin:8px 0">
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)">
+        <span class="booking-ok" style="margin:0">已预约</span>
+        <span style="font-size:14px"><strong>Casa Batlló</strong> — 5月3日 9:30</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)">
+        <span class="booking-ok" style="margin:0">已预约</span>
+        <span style="font-size:14px"><strong>Sagrada Família</strong> — 5月3日 12:45</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)">
+        <span class="booking-alert" style="margin:0">强烈建议预约</span>
+        <span style="font-size:14px"><strong>La Pedrera</strong> — 限时入场，热门日期常售罄</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)">
+        <span class="booking-alert" style="margin:0">必须预约</span>
+        <span style="font-size:14px"><strong>Park Güell</strong> — 需选择时段，当天买不到票</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)">
+        <span style="display:inline-flex;align-items:center;gap:4px;background:#EFF6FF;color:#1E40AF;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;margin:0">ℹ️ 建议预约</span>
+        <span style="font-size:14px"><strong>Osteria Antica Marina</strong>（卡塔尼亚）— 很火爆，尤其午市</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-grid">
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/TapasenBarcelona.JPG/1280px-TapasenBarcelona.JPG" alt="Tapas" loading="lazy"><div class="gi-label">Tapas · 巴塞罗那</div></div>
+    <div class="gi"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg/1280px-Cannoli_siciliani_al_Caff%C3%A8_Impero%2C_ad_Alcamo.jpg" alt="Cannoli" loading="lazy"><div class="gi-label">Cannoli · 西西里</div></div>
+  </div>
+
+</section>
+
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer">
+  <p>Made with ☀️ for a Mediterranean adventure · 图片来源 <a href="https://commons.wikimedia.org" target="_blank">Wikimedia Commons</a></p>
+  <p style="margin-top:8px;font-size:12px">距离数据由 OpenRouteService 验证 · 所有步行时间为实际路线计算</p>
+</footer>
+
+
+<!-- =================== JAVASCRIPT =================== -->
+<script>
+// === COUNTDOWN TIMER ===
+(function() {
+  const target = new Date('2026-05-01T00:00:00+02:00'); // CEST
+  const wrap = document.getElementById('countdownWrap');
+  const els = { d: document.getElementById('cdDays'), h: document.getElementById('cdHours'), m: document.getElementById('cdMins'), s: document.getElementById('cdSecs') };
+
+  function update() {
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) { wrap.classList.add('hidden'); return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    els.d.textContent = d;
+    els.h.textContent = String(h).padStart(2, '0');
+    els.m.textContent = String(m).padStart(2, '0');
+    els.s.textContent = String(s).padStart(2, '0');
+  }
+  update();
+  setInterval(update, 1000);
+})();
+
+// === SCROLL ANIMATIONS (IntersectionObserver) ===
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.day-section, .tl-item').forEach(el => observer.observe(el));
+
+// === PROGRESS BAR ===
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  progressBar.style.width = scrollPercent + '%';
+}, { passive: true });
+
+// === DAY NAVIGATION ===
+const dayNav = document.getElementById('dayNav');
+const dayBtns = document.querySelectorAll('.day-btn');
+const daySections = document.querySelectorAll('.day-section');
+
+// Sticky nav shadow
+window.addEventListener('scroll', () => {
+  dayNav.classList.toggle('scrolled', window.scrollY > 100);
+}, { passive: true });
+
+// Click to scroll
+dayBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Active state on scroll
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      dayBtns.forEach(b => b.classList.remove('active'));
+      const activeBtn = document.querySelector(`[data-target="${entry.target.id}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-80px 0px -50% 0px' });
+
+daySections.forEach(s => navObserver.observe(s));
+
+// === COLLAPSIBLE SECTIONS ===
+function toggleCollapse(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// === IMAGE ERROR HANDLING ===
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function() {
+    this.style.display = 'none';
+    const parent = this.parentElement;
+    if (parent) {
+      parent.style.background = 'linear-gradient(135deg, #FEF3C7, #FDE68A)';
+      parent.style.display = 'flex';
+      parent.style.alignItems = 'center';
+      parent.style.justifyContent = 'center';
+    }
+  });
+});
+
+// === SMOOTH ENTRANCE FOR HERO ===
+window.addEventListener('load', () => {
+  document.querySelector('.hero-content').style.opacity = '1';
+  document.querySelector('.hero-content').style.transform = 'translateY(0)';
+});
+
+// Add initial hidden state for hero content
+const heroContent = document.querySelector('.hero-content');
+heroContent.style.opacity = '0';
+heroContent.style.transform = 'translateY(20px)';
+heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
+</script>
+
+</body>
+</html>
